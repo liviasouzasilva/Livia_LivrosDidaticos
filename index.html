@@ -1,11 +1,73 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Livros Didáticos</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fonte elegante adicionada -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+  <header>
+    <!-- Imagem removida do cabeçalho -->
+    <h1>Catálogo de Livros Didáticos</h1>
+  </header>
+  <main>
+    <!-- Bloco de explicação adicionado -->
+    <section class="intro">
+      <h2>Sobre o sistema</h2>
+      <p>Este site permite cadastrar livros didáticos com título, autor e disciplina. Você pode filtrar por disciplina e autor e controlar se o livro está emprestado ou disponível. Os dados são salvos localmente no seu navegador.</p>
+    </section>
+
+    <form id="bookForm">
+      <h2>Cadastrar Livro</h2>
+      <input type="text" id="titulo" placeholder="Título" required>
+      <input type="text" id="autor" placeholder="Autor" required>
+      <!-- Campo de disciplina trocado de texto para select abaixo -->
+      <select id="disciplina" required>
+        <option value="">Selecione a disciplina</option>
+        <option value="Matemática">Matemática</option>
+        <option value="Português">Português</option>
+        <option value="História">História</option>
+        <option value="Geografia">Geografia</option>
+        <option value="Física">Física</option>
+        <option value="Química">Química</option>
+        <option value="Biologia">Biologia</option>
+        <option value="Inglês">Inglês</option>
+        <option value="Artes">Artes</option>
+        <option value="Educação Física">Educação Física</option>
+      </select>
+      <button type="submit">Adicionar Livro</button>
+    </form>
+
+    <div>
+      <h2>Filtrar por Disciplina</h2>
+      <select id="filtroDisciplina">
+        <option value="">Todas</option>
+        <option value="Matemática">Matemática</option>
+        <option value="Português">Português</option>
+        <option value="História">História</option>
+        <option value="Geografia">Geografia</option>
+        <option value="Física">Física</option>
+        <option value="Química">Química</option>
+        <option value="Biologia">Biologia</option>
+        <option value="Inglês">Inglês</option>
+        <option value="Artes">Artes</option>
+        <option value="Educação Física">Educação Física</option>
+      </select>
+
+      <!-- Novo filtro por autor -->
+      <h2>Filtrar por Autor</h2>
+      <select id="filtroAutor">
+        <option value="">Todos</option>
+      </select>
+    </div>
+
+    <div class="book-list" id="listaLivros"></div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

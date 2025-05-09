@@ -1,4 +1,3 @@
-// script.js
 const form = document.getElementById('bookForm');
 const listaLivros = document.getElementById('listaLivros');
 const filtroDisciplina = document.getElementById('filtroDisciplina');
@@ -26,14 +25,14 @@ function exibirLivros() {
     return porDisciplina && porAutor;
   });
 
-  listaLivros.innerHTML = livrosFiltrados.length ? livrosFiltrados.map((livro, index) => `
+  listaLivros.innerHTML = livrosFiltrados.length ? livrosFiltrados.map(livro => `
     <div class="book">
       <strong>${livro.titulo}</strong><br>
       Autor: ${livro.autor}<br>
       Disciplina: ${livro.disciplina}<br>
       Situação: ${livro.emprestado ? 'Emprestado' : 'Disponível'}
       <br>
-      <button onclick="alternarEmprestimo(${index})">
+      <button onclick="alternarEmprestimo(${livros.indexOf(livro)})">
         ${livro.emprestado ? 'Devolver' : 'Emprestar'}
       </button>
     </div>

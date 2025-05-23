@@ -1,21 +1,28 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Catálogo de Livros Didáticos</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <!-- Fonte elegante adicionada -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <!-- Imagem removida do cabeçalho -->
+
+  <!-- MENU INICIAL -->
+  <div id="menuInicial" class="menu-inicial">
+    <h1 id="tituloMenu">Bem-vindo ao Catálogo de Livros Didáticos!</h1>
+    <input type="text" id="nomeUsuario" placeholder="Digite seu nome" />
+    <button id="btnEntrar" disabled>Entrar no Sistema</button>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL (começa escondido) -->
+  <header id="mainHeader" style="display:none;">
     <h1>Catálogo de Livros Didáticos</h1>
   </header>
-  <main>
-    <!-- Bloco de explicação adicionado -->
+  <main id="mainContent" style="display:none;">
+
     <section class="intro">
       <h2>Sobre o sistema</h2>
       <p>Este site permite cadastrar livros didáticos com título, autor e disciplina. Você pode filtrar por disciplina e autor e controlar se o livro está emprestado ou disponível. Os dados são salvos localmente no seu navegador.</p>
@@ -23,9 +30,8 @@
 
     <form id="bookForm">
       <h2>Cadastrar Livro</h2>
-      <input type="text" id="titulo" placeholder="Título" required>
-      <input type="text" id="autor" placeholder="Autor" required>
-      <!-- Campo de disciplina trocado de texto para select abaixo -->
+      <input type="text" id="titulo" placeholder="Título" required />
+      <input type="text" id="autor" placeholder="Autor" required />
       <select id="disciplina" required>
         <option value="">Selecione a disciplina</option>
         <option value="Matemática">Matemática</option>
@@ -62,7 +68,6 @@
         <option value="T.I.">T.I.</option>
       </select>
 
-      <!-- Novo filtro por autor -->
       <h2>Filtrar por Autor</h2>
       <select id="filtroAutor">
         <option value="">Todos</option>

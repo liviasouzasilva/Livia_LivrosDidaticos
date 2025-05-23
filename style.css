@@ -103,5 +103,72 @@ button:hover {
 }
 
 .book button:hover {
-  background-color: #221072;
+  background-color: #a39ac9;
+}
+
+/* Menu Inicial - mesma vibe da tela principal */
+.menu-inicial {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, #fdfcfb, #d4bce7);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  z-index: 9999;
+  text-align: center;
+  padding: 20px;
+}
+
+.menu-inicial h1 {
+  font-size: 2.8em;
+  margin-bottom: 30px;
+  color: #574abb;
+  text-shadow: 0 0 8px rgba(87, 74, 187, 0.3);
+}
+
+.menu-inicial input[type="text"] {
+  font-size: 1.2em;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 1px solid #8376e6;
+  width: 250px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(131, 118, 230, 0.3);
+  outline: none;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  color: #333;
+  background: #fff;
+}
+
+.menu-inicial input[type="text"]:focus {
+  box-shadow: 0 0 12px #6c5ed6;
+  border-color: #574abb;
+}
+
+.menu-inicial button {
+  font-size: 1.3em;
+  background-color: #7f75cc;
+  color: white;
+  border: none;
+  padding: 15px 50px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(140, 89, 182, 0.6);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.menu-inicial button:disabled {
+  background-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.menu-inicial button:not(:disabled):hover {
+  background-color: #574abb;
+  transform: scale(1.05);
 }

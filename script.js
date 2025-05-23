@@ -5,16 +5,27 @@ const filtroAutor = document.getElementById('filtroAutor');
 
 let livros = JSON.parse(localStorage.getItem('livros')) || [];
 
+// Variáveis do menu inicial
+const nomeUsuario = document.getElementById('nomeUsuario');
+const btnEntrar = document.getElementById('btnEntrar');
+const tituloMenu = document.getElementById('tituloMenu');
+const menuInicial = document.getElementById('menuInicial');
+const mainHeader = document.getElementById('mainHeader');
+const mainContent = document.getElementById('mainContent');
+
+// Função pra salvar livros no localStorage
 function salvarLivros() {
   localStorage.setItem('livros', JSON.stringify(livros));
 }
 
+// Atualiza filtro de autores, baseado nos livros cadastrados
 function atualizarFiltroAutores() {
   const autores = [...new Set(livros.map(l => l.autor))];
   filtroAutor.innerHTML = '<option value="">Todos</option>' +
     autores.map(a => `<option value="${a}">${a}</option>`).join('');
 }
 
+// Exibe os livros filtrados na tela
 function exibirLivros() {
   const disciplinaSelecionada = filtroDisciplina.value;
   const autorSelecionado = filtroAutor.value;
@@ -39,12 +50,14 @@ function exibirLivros() {
   `).join('') : '<p>Nenhum livro disponível.</p>';
 }
 
+// Alterna situação do livro (emprestado/disponível)
 function alternarEmprestimo(index) {
   livros[index].emprestado = !livros[index].emprestado;
   salvarLivros();
   exibirLivros();
 }
 
+// Eventos do formulário de cadastro de livro
 form.addEventListener('submit', e => {
   e.preventDefault();
   const titulo = document.getElementById('titulo').value.trim();
@@ -60,9 +73,30 @@ form.addEventListener('submit', e => {
   }
 });
 
+// Eventos de filtros
 filtroDisciplina.addEventListener('change', exibirLivros);
 filtroAutor.addEventListener('change', exibirLivros);
+
+// Habilita/desabilita botão Entrar conforme input nome
+nomeUsuario.addEventListener('input', () => {
+  btnEntrar.disabled = nomeUsuario.value.trim().length === 0;
+});
+
+// Botão entrar: saudação + esconde menu + mostra sistema
+btnEntrar.addEventListener('click', () => {
+  const nome = nomeUsuario.value.trim();
+  if (!nome) return;
+
+  tituloMenu.textContent = `Bem-vinda, ${nome}!`;
+
+  setTimeout(() => {
+    menuInicial.style.display = 'none';
+    mainHeader.style.display = 'block';
+    mainContent.style.display = 'block';
+  }, 1300);
+});
 
 // Inicialização
 atualizarFiltroAutores();
 exibirLivros();
+

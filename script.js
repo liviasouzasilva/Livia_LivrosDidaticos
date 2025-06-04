@@ -87,7 +87,7 @@ btnEntrar.addEventListener('click', () => {
   const nome = nomeUsuario.value.trim();
   if (!nome) return;
 
-  tituloMenu.textContent = `Bem-vinda, ${nome}!`;
+  tituloMenu.textContent = `Bem-vindo(a) , ${nome}!`;
 
   setTimeout(() => {
     menuInicial.style.display = 'none';
